@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza</title>
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <h1>Pizza order</h1>
+        <form id="form">
+
+            <input type="text" id="userName" placeholder="User name"><br>
+            <input type="number" id="number" placeholder="Phone number"><br>
+            <input type="address" id="address" placeholder="User address"><br>
+
+            <strong>Dough thickness</strong>
+            <select name="thickness" id="thickness__value">
+                <option value="none" selected disabled>none</option>
+                <option value="Thin">Thin</option>
+                <option value="Medium">Medium</option>
+                <option value="Thick">Thick</option>
+            </select><br>
+
+            <strong>Size:</strong>
+            <label for="size1">
+                <input type="radio" id="size1" value="25sm" name="size" checked>25sm</label>
+            <label for="size2">
+                <input type="radio" id="size2" value="30sm" name="size">30sm</label>
+            <label for="size3">
+                <input type="radio" id="size3" value="35sm" name="size">35sm</label><br>
+
+            <strong>On pizza:</strong><br>
+            <label for="tomato">
+                <input type="checkbox" class="onPizza" id="tomato" value="Tomato">Tomato</label>
+            <label for="cucumber">
+                <input type="checkbox" class="onPizza" id="cucumber" value="Pickled_cucumber">Pickled
+                cucumber</label><br>
+            <label for="turkey">
+                <input type="checkbox" class="onPizza" id="turkey" value="Turkey_meat">Turkey meat</label>
+            <label for="mushroom">
+                <input type="checkbox" class="onPizza" id="mushroom" value="Mushroom">Mushroom</label><br>
+            <label for="olive">
+                <input type="checkbox" class="onPizza" id="olive" value="Olive">Olive</label>
+            <label for="horse">
+                <input type="checkbox" class="onPizza" id="horse" value="Horse_meat">Horse meat</label><br>
+
+            <strong>Add:</strong><br>
+            <label for="Pepper"><input type="checkbox" class="add" id="Pepper" value="Pepper">Pepper</label>
+            <label for="Sausages"><input type="checkbox" class="add" id="Sausages" value="Sausages">Sausages</label><br>
+
+            <button type="submit">Save</button>
+
+        </form>
+    </div>
+
+    <!-- <div class="price">
+        <span id="price1"></span> Thin-$10<br>
+        <span id="price2"></span> Medium-$12<br>
+        <span id="price3"></span> Thick-$15<br>
+        <strong>Size:</strong><span id="price11"> 25sm-$10</span><br>
+        <span id="price12"></span> 30sm-$12<br>
+        <span id="price13"></span> 35sm-$15<br>
+        <strong>On pizza:</strong><span id="price5"> every-$5</span><br>
+        <strong>Add:</strong><span id="price6"> every-$3</span>
+    </div> -->
+
+    <div class="orderpage">
+        <!-- <strong>Name:</strong><span id="forName"></span><br>
+            <strong>Phone:</strong><span id="forPhone"></span><br>
+            <strong>Address:</strong><span id="forAddress"></span><br>
+            <hr>
+            <strong>Dough thickness:</strong><span id="forThickness"></span><br>
+            <strong>Size:</strong><span id="forSize"></span><br>
+            <strong>On Pizza:</strong><span id="forOnPizza"></span><br>
+            <strong>Add:</strong><span id="forAdd"></span>
+            <hr>
+            <h3>Total:</h3><span id="forTotal"></span> -->
+
+    </div>
+
+</body>
+<script src="./js/main.js"></script>
+
+</html>
