@@ -38,18 +38,17 @@ formEl.addEventListener("submit", (e) => {
   PizzaOrder.phone = userNumber.value;
   PizzaOrder.address = userAddress.value;
   PizzaOrder.thickness = selectedThickness.value;
+
   for (item of size) {
     if (item.checked) {
       PizzaOrder.size = item.value;
     }
   }
-
   for (i of onPizza) {
     if (i.checked) {
       PizzaOrder.onPizza.push(i.value);
     }
   }
-
   for (item of add) {
     if (item.checked) {
       PizzaOrder.add.push(item.value);
@@ -59,7 +58,7 @@ formEl.addEventListener("submit", (e) => {
   OrderEl.push(PizzaOrder);
   //   console.log(OrderEl);
   render();
-  //   calcPrice();
+  calcPrice();
 });
 function render() {
   const elOrder = $(".orderpage");
@@ -82,30 +81,55 @@ function render() {
     }</span><br>
     <strong>Add:</strong><span id="forAdd"> ${OrderEl[i].add}</span>
     <hr>
-    <h3>Total:</h3><span id="forTotal"></span>
     `;
     elOrder.innerHTML = elOrder.innerHTML + card;
   }
 }
 
-// const price1 = 10;
-// const price2 = 12;
-// const price3 = 15;
-// const price11 = 10;
-// const price12 = 12;
-// const price13 = 15;
-// const price5 = 5;
-// const price6 = 3;
+const forTotal = $("#forTotal");
+const price1 = 10;
+const price2 = 12;
+const price3 = 15;
+const price11 = 10;
+const price12 = 12;
+const price13 = 15;
+const price5 = 5;
+const price6 = 3;
+let fullPrice = 0;
 
-// function calcPrice() {
-//   for (let i = 0; i < OrderEl.length; i++) {
-//     //   console.log(selectedThickness.value);
-//     if ((OrderEl[i].thickness = "Thin")) {
-//       console.log(price1);
-//     } else if ((OrderEl[i].thickness = "Medium")) {
-//       console.log(price2);
-//     } else if ((OrderEl[i].thickness = "Thick")) {
-//       console.log(price3);
-//     }
-//   }
-// }
+function calcPrice() {
+  if (PizzaOrder.thickness == "Thin") {
+    fullPrice += price1;
+  } else if (PizzaOrder.thickness == "Medium") {
+    fullPrice += price2;
+  } else if (PizzaOrder.thickness == "Thick") {
+    fullPrice += price3;
+  }
+  if (PizzaOrder.size == "25sm") {
+    fullPrice += price11;
+  } else if (PizzaOrder.size == "30sm") {
+    fullPrice += price12;
+  } else if (PizzaOrder.size == "35sm") {
+    fullPrice += price13;
+  }
+  if (PizzaOrder.onPizza.length == 6) {
+    fullPrice += 30;
+  } else if (PizzaOrder.onPizza.length == 5) {
+    fullPrice += 25;
+  } else if (PizzaOrder.onPizza.length == 4) {
+    fullPrice += 20;
+  } else if (PizzaOrder.onPizza.length == 3) {
+    fullPrice += 15;
+  } else if (PizzaOrder.onPizza.length == 2) {
+    fullPrice += 10;
+  } else if (PizzaOrder.onPizza.length == 1) {
+    fullPrice += 5;
+  }
+  if (PizzaOrder.add.length == 2) {
+    fullPrice += 6;
+  } else if (PizzaOrder.add.length == 1) {
+    fullPrice += 3;
+  }
+  console.log(fullPrice);
+  forTotal.innerHTML = fullPrice + "$";
+}
